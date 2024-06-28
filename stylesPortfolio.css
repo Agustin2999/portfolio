@@ -110,6 +110,7 @@ hr {
 
 .textContainer {
   background-color: rgba(0, 0, 0, 0.3137254902);
+  background-color: rgba(255, 255, 255, 0.1254901961);
   padding: 1rem;
   text-align: left;
   color: white;
@@ -181,6 +182,7 @@ hr {
 
 .container_btnDownload {
   background-color: rgba(0, 0, 0, 0.3137254902);
+  background-color: rgba(255, 255, 255, 0.1254901961);
   border: 1px solid rgba(0, 0, 0, 0.5019607843);
   border-radius: 25px;
   width: 100%;
@@ -209,6 +211,9 @@ hr {
   .proyecto .img-project {
     width: 50%;
     min-width: 250px;
+  }
+  #container_skills, #container_contacto {
+    padding: 0 !important;
   }
 }
 .div-skill {
