@@ -137,7 +137,7 @@ body {
         transition: transform .3s;
 
         //grid-column: 2 / 4;
-        min-width: 300px;
+        min-width: 230px;
         width: 45%
     }
 
@@ -381,12 +381,23 @@ $degradexxxx : linear-gradient(to bottom, black, #00000095, transparent);
     .proyecto {
 
         flex-direction: column-reverse;
-
+        padding:0 !important;
+        border:1px solid green !important;
+        
+        position: relative !important;
+        
         div {
-            width: 80%;
+             min-width: 100px;
+             width: 80%;
 
+            border:1px solid red !important;
+            
         }
 
+        .img-project{
+           width:50%;
+          min-width:250px
+        }
     }
 }
 

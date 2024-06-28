@@ -64,7 +64,7 @@ body {
   padding: 1rem;
   background: radial-gradient(circle at center, #FF9004, #FF9004, transparent);
   transition: transform 0.3s;
-  min-width: 300px;
+  min-width: 230px;
   width: 45%;
 }
 .proyecto div:hover {
@@ -197,9 +197,18 @@ hr {
 @media (max-width: 874px) {
   .proyecto {
     flex-direction: column-reverse;
+    padding: 0 !important;
+    border: 1px solid green !important;
+    position: relative !important;
   }
   .proyecto div {
+    min-width: 100px;
     width: 80%;
+    border: 1px solid red !important;
+  }
+  .proyecto .img-project {
+    width: 50%;
+    min-width: 250px;
   }
 }
 .div-skill {
