@@ -206,7 +206,6 @@ hr {
   .proyecto div {
     min-width: 100px;
     width: 80%;
-    border: 1px solid red !important;
   }
   .proyecto .img-project {
     width: 50%;
