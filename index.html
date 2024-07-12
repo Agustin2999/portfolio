@@ -3,418 +3,495 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- no se puede importar como un css normal. Tiene que convertirse primero a un css normal -->
-    <link rel="stylesheet" href="stylesPortfolio.css">
-    <!-- El orden de los links SI importa -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="./imagenes_proyectos/favicon-programacion.png">
-
     <title>Portfolio Agustin</title>
+    <style>
+        body {
+            /* font-family: 'Arial', sans-serif; */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin: 0 1em;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        header nav ul li a:hover {
+            color: #007BFF;
+
+        }
+
+
+
+
+        #hero {
+            text-align: center;
+            padding: 10em 1em;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #fff;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        #hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        #hero h1 {
+            margin: 0;
+            font-size: 3em;
+            animation: fadeInDown 1s ease;
+        }
+
+        #hero p {
+            font-size: 1.5em;
+            color: #eee;
+            animation: fadeInUp 1s ease;
+        }
+
+        #hero button {
+            padding: 0.5em 2em;
+            font-size: 1em;
+            margin-top: 1em;
+            cursor: pointer;
+            background: #fff;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+
+        #hero button:hover {
+            /* background: #007BFF; */
+            background-color: #708DFA;
+            color: #fff;
+
+            /*https://www.cssmatic.com/es/box-shadow*/
+            -webkit-box-shadow: 0px 0px 45px -7px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 45px -7px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 45px -7px rgba(0, 0, 0, 0.75);
+
+        }
+
+        section {
+            padding: 4em 1em;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 1em;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #007BFF;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+        }
+
+        .project {
+            text-align: center;
+            margin-bottom: 2em;
+            background: #fff;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project img {
+            /*width: 400px; /*100%; 
+           max-width: 300px;*/
+
+            width: 100%;
+            max-width: 400px;
+            max-height: 230px;
+
+            height: auto;
+            /*200px;*/
+            object-fit: contain;
+            /*cover;*/
+            border-radius: 8px;
+        }
+
+        .project h3 {
+            margin: 0.5em 0;
+        }
+
+        .project p {
+            color: #777;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 0.5em;
+            color: #007BFF;
+
+            text-decoration: none;
+        }
+
+        #skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0;
+        }
+
+        #skills ul li {
+            margin: 0.5em;
+            padding: 0.5em 0.5em;
+            /*original estaba en 1em*/
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        #contact ul li {
+            margin: 0 1em;
+        }
+
+        #contact ul li a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        #contact ul li a:hover {
+            color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background: #333;
+            color: #fff;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+
+
+        /* De diseño anterior */
+        .divButtonContact_hover {
+            background: #8E82EE !important;
+        }
+    </style>
+
+
+    <!-- iconos bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Sobre Mí</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <section id="hero">
+        <img src="https://media.licdn.com/dms/image/D4E03AQHnGm6ihL2mbg/profile-displayphoto-shrink_800_800/0/1679961660790?e=2147483647&v=beta&t=215F2mTdM-VUt2W-2Gx3ksNWYVWpiDf2XUY5oWuSSJ0"
+            alt="Mi Foto">
+        <h1>Hola, soy Agustín Cánovas</h1>
 
-
-
-    <nav class="navbar bg-dark border-bottom border-body" style="position: fixed; 
-    top: 0; width: 100%; z-index:999  " data-bs-theme="dark">
-
-
-
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" onclick="collapsarMenu()">Portfolio</a>
-            <button class="navbar-toggler" type="button" id="btnBurger" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation" onclick="changeTopAbsoluteDiv(!previoTopAbsoluteDiv)">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#aboutMe" onclick="collapsarMenu()"
-                            id="click-to-aboutMe">
-                            Quien Soy
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#title-projects" onclick="collapsarMenu()"
-                            id="click-to-title-projects">
-                            Mis proyectos
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#title-cvdownload"
-                            onclick="collapsarMenu()" id="click-to-title-cvdownload">
-                            Curriculum Vitae
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#container_skills"
-                            onclick="collapsarMenu()" id="click-to-container_skills">
-                            Skills (lenguajes, frameworks, tecnologías y herramientas)
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#container_contacto"
-                            onclick="collapsarMenu()" id="click-to-container_contacto">
-                            Contacto
-                        </a>
-                    </li>
-
-
-                </ul>
-                <!-- <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
+        <div class="info-personal" style="text-align:left;margin:1rem;padding-left: 10%;padding-right: 10%;  ">
+            <div style="padding:0.3rem">
+                <span><i class="bi bi-code-slash"></i></span>
+                <span href="">Desarrollador FullStack</span>
             </div>
-        </div>
-    </nav>
-
-
-    <div id="absolute-div"></div>
-    <!-- div para degradado al deslizar -->
-
-
-
-
-    <div class="secondBody">
-
-        <header id="header" class="header">
-            <h1 class="mainTitle">Portfolio Agustin Canovas</h1>
-            <h4 class="mainSubtitle">Desarrollador de software</h4>
-        </header>
-
-
-
-        <div class="container_aboutme" id="aboutMe">
-
-            <img class="img_me"
-                src="https://media.licdn.com/dms/image/D4E03AQHnGm6ihL2mbg/profile-displayphoto-shrink_800_800/0/1679961660790?e=2147483647&v=beta&t=215F2mTdM-VUt2W-2Gx3ksNWYVWpiDf2XUY5oWuSSJ0"
-                width="200px" style=" flex: 0 0 auto; ">
-
-            <div class="textContainer" style="  min-width:274px;   flex: 1;">
-                <p style="text-align:center">SOBRE MI:</p>
-
-                <div>
-                    <span><i class="bi bi-code-slash"></i></span>
-                    <span href="">Fullstack developer</span>
-                </div>
-                <div>
-                    <span><i class="bi bi-calendar-event"></i></span>
-                    <span>24 años</span>
-                </div>
-                <div>
-                    <span><i class="bi bi-geo-alt-fill"></i></span>
-                    <a href="https://maps.app.goo.gl/68Bn5xPv35pBEN2v5">Río Segundo, Córdoba, Argentina</a>
-
-                </div>
-                <div>
-                    <span><i class="bi bi-person-workspace"></i></span>
-                    <span>
-                        Trabajo actual: <a href="https://ciampagna.com.ar" target="_blank">Ciampagna</a>
-                    </span>
-
-
-                </div>
-
-
-
-                <p><i class="bi bi-info-circle"></i> Este es un portfolio donde encontrarán proyectos hechos con las
-                    tecnologias: Python, Javascript,
-                    React.js,
-                    Bootstrap. </p>
-
-
-
+            <div style="padding:0.3rem">
+                <span><i class="bi bi-calendar-event"></i></span>
+                <span>24 años</span>
+            </div>
+            <div style="padding:0.3rem">
+                <span><i class="bi bi-geo-alt-fill"></i></span>
+                <a style="color:white; font-weight: bold;" href="https://maps.app.goo.gl/68Bn5xPv35pBEN2v5">Río Segundo,
+                    Córdoba, Argentina</a>
 
             </div>
-            <!-- <div class="contenedorImagen" style="overflow: hidden; border:1px solid black;  background-color: yellow;">                    </div> -->
-
-        </div>
-
-
-
-
-
-
-
-
-        <hr>
-        <h3 id="title-projects" class="cl-wh">MIS PROYECTOS</h3>
-
-        <div id="container_projects">
-            <!-- <div class="proyecto" id="projects">
-                <img src="./imagenes_proyectos/img-ropero.JPG">
-                <div>
-                    <p>Este es un <a href="#">PROYECTO</a> hecho con react, sass boostrap. etc. Trata de una tienda
-                        weTrata
-                        de una tiendTrata de una tiendTrata de una tiendb
-                       </p>
-                </div>
-            </div> -->
-        </div>
-
-
-
-
-
-        <hr>
-        <h3 id="title-cvdownload" class="cl-wh">CURRICULUM VITAE</h3>
-
-        <div id="container_cvdownload" style="padding:4rem">
-
-
-            <div class="container_btnDownload"  >
-                <a type="button" class="btn btn-light btnDownload mlr-0" target="_blank" href="./pdfs cv/Curriculum5s.pdf">Descargar CV</a>
+            <div style="padding:0.3rem">
+                <span><i class="bi bi-person-workspace"></i></span>
+                <span>
+                    Trabajo actual: <a style="color:white; font-weight: bold;" href="https://ciampagna.com.ar"
+                        target="_blank">Ciampagna</a>
+                </span>
             </div>
-
-
-
-        </div>
-
-
-
-        <hr>
-        <h3 id="title-cvdownload" class="cl-wh">CONOCIMIENTOS</h3>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="container_skills" style="padding:4rem">
-            <div class="textContainer"
-                style="  min-width:274px;   flex: 1; display:flex;gap:2rem; flex-wrap: wrap; justify-content: space-around;"
-                id="divSkillsContainer">
-                <!-- <p style="text-align:center">SOBRE MI:</p> -->
-                <!-- <div class="div-skill">
-                    <img src="https://www.directvsports.com/__export/1716315913873/sites/dsports/img/2024/05/21/botines_lionel_messi_copa_america_2024.png_973845053.png">
-                    <span>Example</span>
-                </div> -->
-
-
-
-
-
-
-
-
-
-
-
+            <div style="padding:0.3rem">
+                <i class="bi bi-info-circle"></i>
+                Este es un portfolio donde encontrarán proyectos hechos con las
+                tecnologias: Python, Javascript,
+                React.js,
+                Bootstrap.
             </div>
         </div>
 
 
 
+        <button onclick="downloadCV()">Descargar CV</button>
+    </section>
+
+    <!-- <section id="about">
+        <h2>Sobre Mí</h2>
+        <p>¡Hola! Soy Agustin Canovas, un desarrollador apasionado con experiencia en [Tu Experiencia]. Me encanta crear
+            soluciones innovadoras y eficientes.</p>
+    </section> -->
+
+    <section id="projects">
+        <h2>Proyectos</h2>
+        <!-- <div class="project">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJMU7S6J6U5AOHz8zLcsbXDOhiKuAe4jAzlg&s"
+                alt="Proyecto 1">
+            <h3>Proyecto 1</h3>
+            <p>Descripción del proyecto 1.</p>
+            <a href="link/a/tu/proyecto" target="_blank">Ver Proyecto</a>
+        </div> -->
+
+
+
+        <!-- Agrega más proyectos aquí -->
+    </section>
+
+    <section id="skills">
+        <h2>Habilidades</h2>
+        <ul id="ul-container-skills">
+            <!-- <li>JavaScript</li>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>HTML & CSS</li> -->
+            <!-- Agrega más habilidades aquí -->
+        </ul>
+    </section>
+
+    <section id="contact">
+        <!-- <h2>Contacto</h2>
+        <p>Puedes contactarme a través de:</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/tu-perfil" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:tu-email@example.com">Email</a></li>
+             -->
+        <!-- Agrega más enlaces de contacto aquí -->
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <hr>
-        <h3 id="title-cvdownload" class="cl-wh">CONTACTO</h3>
-
-
-        <div id="container_contacto" style="padding:4rem">
-
-
-
-
-            <div class="textContainer" style=" box-sizing: border-box; display:flex; width:100%; justify-content: space-around; 
+        <div class="textContainer" style=" box-sizing: border-box; display:flex; width:100%; justify-content: space-around; 
               flex-wrap: wrap; gap: 20px; /* Añade espacio entre los elementos flexibles */">
 
 
-                <div style="  width:30%;display:inline-block; min-width:270px;  text-align:center">
-                    <div id="buttonMailContact"
-                        style="height:auto;  display: inline-flex; padding:2px; overflow: hidden;align-items:center;background:white; color:black; border-radius:8px; margin-bottom:0.7rem ">
-                        <a onmouseenter="addHoverButtonContact('buttonMailContact')"
-                            onmouseleave="removeHoverButtonContact('buttonMailContact')"
-                            href="mailto:agucanovas9@gmail.com"
-                            style="color:initial; text-decoration: none;display:flex; align-items:center"
-                            target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/646/646094.png"
-                                height="40px" />
-                            <span style=" margin:7px">E-mail</span></a>
-
-                    </div>
-                    <p id="pContainerIconMl" style=" display:inline-block;width:100%">
-                        agucanovas9@gmail.com
-                        <i class="bi bi-copy" style="cursor:pointer"
-                            onclick="copiarAlPortapapeles('agucanovas9@gmail.com','pContainerIconMl','agucanovas9@gmail.com')"></i>
-                    </p>
-
-
+            <div style="  width:30%;display:inline-block; min-width:270px;  text-align:center">
+                <div id="buttonMailContact"
+                    style="height:auto;  display: inline-flex; padding:2px; overflow: hidden;align-items:center;background:white; color:black; border-radius:8px; margin-bottom:0.7rem ">
+                    <a onmouseenter="addHoverButtonContact('buttonMailContact')"
+                        onmouseleave="removeHoverButtonContact('buttonMailContact')" href="mailto:agucanovas9@gmail.com"
+                        style="color:initial; text-decoration: none;display:flex; align-items:center"
+                        target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/646/646094.png"
+                            height="40px" />
+                        <span style=" margin:7px">E-mail</span></a>
 
                 </div>
-
-
-                <div style="  width:30%;display:inline-block; min-width:270px;  text-align:center">
-                    <div id="buttonLinkedinContact"
-                        style="height:auto;  display: inline-flex; padding:2px; overflow: hidden;align-items:center;background:white; color:black; border-radius:8px; margin-bottom:0.7rem ">
-                        <a onmouseenter="addHoverButtonContact('buttonLinkedinContact')"
-                            onmouseleave="removeHoverButtonContact('buttonLinkedinContact')"
-                            href="https://linkedin.com/in/canovas-agustin"
-                            style="color:initial; text-decoration: none;display:flex; align-items:center"
-                            target="_blank"><img src="https://cdn-icons-png.flaticon.com/256/174/174857.png"
-                                height="40px" />
-                            <span style=" margin:7px">LinkedIn</span></a>
-
-                    </div>
-
-                    <p id="pContainerIconLn" style=" display:inline-block;width:100%">
-                        https://linkedin.com/in/canovas-agustin
-                        <i class="bi bi-copy" style="cursor:pointer"
-                            onclick="copiarAlPortapapeles('https://linkedin.com/in/canovas-agustin', 'pContainerIconLn', 'https://linkedin.com/in/canovas-agustin')"></i>
-                    </p>
-
-                </div>
-
-
-
-
-
-                <div style=" width:30%;display:inline-block; min-width:270px; text-align:center">
-                    <div id="buttonGithubContact"
-                        style="height:auto;  display: inline-flex; padding:2px; overflow: hidden;align-items:center;background:white; color:black; border-radius:8px ; margin-bottom:0.7rem">
-                        <a onmouseenter="addHoverButtonContact('buttonGithubContact')"
-                            onmouseleave="removeHoverButtonContact('buttonGithubContact')"
-                            href="https://github.com/Agustin2999"
-                            style="color:initial; text-decoration: none;display:flex; align-items:center"
-                            target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                                height="40px" />
-                            <span style=" margin:7px">Github</span></a>
-
-                    </div>
-
-                    <p id="pContainerIconGh" style=" display:inline-block;width:100%">
-                        https://github.com/Agustin2999
-                        <i class="bi bi-copy" style="cursor:pointer"
-                            onclick="copiarAlPortapapeles('https://github.com/Agustin2999', 'pContainerIconGh','https://github.com/Agustin2999')"></i>
-                    </p>
-                </div>
-
-
-
+                <p id="pContainerIconMl" style=" display:inline-block;width:100%">
+                    agucanovas9@gmail.com
+                    <i class="bi bi-copy" style="cursor:pointer"
+                        onclick="copiarAlPortapapeles('agucanovas9@gmail.com','pContainerIconMl','agucanovas9@gmail.com')"></i>
+                </p>
 
 
 
             </div>
+
+
+            <div style="  width:30%;display:inline-block; min-width:270px;  text-align:center">
+                <div id="buttonLinkedinContact"
+                    style="height:auto;  display: inline-flex; padding:2px; overflow: hidden;align-items:center;background:white; color:black; border-radius:8px; margin-bottom:0.7rem ">
+                    <a onmouseenter="addHoverButtonContact('buttonLinkedinContact')"
+                        onmouseleave="removeHoverButtonContact('buttonLinkedinContact')"
+                        href="https://linkedin.com/in/canovas-agustin"
+                        style="color:initial; text-decoration: none;display:flex; align-items:center"
+                        target="_blank"><img src="https://cdn-icons-png.flaticon.com/256/174/174857.png"
+                            height="40px" />
+                        <span style=" margin:7px">LinkedIn</span></a>
+
+                </div>
+
+                <p id="pContainerIconLn" style=" display:inline-block;width:100%">
+                    https://linkedin.com/in/canovas-agustin
+                    <i class="bi bi-copy" style="cursor:pointer"
+                        onclick="copiarAlPortapapeles('https://linkedin.com/in/canovas-agustin', 'pContainerIconLn', 'https://linkedin.com/in/canovas-agustin')"></i>
+                </p>
+
+            </div>
+
+
+
+
+
+            <div style=" width:30%;display:inline-block; min-width:270px; text-align:center">
+                <div id="buttonGithubContact"
+                    style="height:auto;  display: inline-flex; padding:2px; overflow: hidden;align-items:center;background:white; color:black; border-radius:8px ; margin-bottom:0.7rem">
+                    <a onmouseenter="addHoverButtonContact('buttonGithubContact')"
+                        onmouseleave="removeHoverButtonContact('buttonGithubContact')"
+                        href="https://github.com/Agustin2999"
+                        style="color:initial; text-decoration: none;display:flex; align-items:center"
+                        target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" height="40px" />
+                        <span style=" margin:7px">Github</span></a>
+
+                </div>
+
+                <p id="pContainerIconGh" style=" display:inline-block;width:100%">
+                    https://github.com/Agustin2999
+                    <i class="bi bi-copy" style="cursor:pointer"
+                        onclick="copiarAlPortapapeles('https://github.com/Agustin2999', 'pContainerIconGh','https://github.com/Agustin2999')"></i>
+                </p>
+            </div>
         </div>
 
 
+        <!-- </ul> -->
+    </section>
 
-
-
-
-
-    </div>
-
-    <footer style=" text-align: center;   background-color: #333; color: #fff; position: fixed; 
-         bottom: 0; width: 100%;  max-height: 3rem; margin:0">
-        <p>&copy; 2024 Agustin - Desarrollador de software</p>
+    <footer>
+        <p>&copy; 2024 Agustin. Todos los derechos reservados.</p>
     </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
+        function downloadCV() {
+            window.location.href = 'ruta/a/tu/cv.pdf';
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
 
 
 
+
+
+
+
+
+
+
+
+
+        // De proyecto viejo
+
+        function addHoverButtonContact(id) {
+            let button = document.querySelector('#' + id)
+            button.classList.add('divButtonContact_hover')
+        }
+
+        function removeHoverButtonContact(id) {
+            let button = document.querySelector('#' + id)
+            button.classList.remove('divButtonContact_hover')
+        }
+
+
+
+        function mezclarArregloConCopia(arreglo) {
+            const copia = Array.from(arreglo);
+            for (let i = copia.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copia[i], copia[j]] = [copia[j], copia[i]];
+            }
+            return copia;
+        }
 
 
 
@@ -445,9 +522,6 @@
             document.body.removeChild(textarea);
 
 
-
-
-
             // Cambiar icono copiar a icono check por un ratito
             let contenedorIcono = document.querySelector('#' + idContainer);
             contenedorIcono.innerHTML = " " + texto + " <i class='bi bi-check-lg'></i>";
@@ -468,61 +542,96 @@
                 console.log("VIEJOICONO")
                 console.log(contenedorIcono.innerHTML)
 
-            }, 3000);
-
-
-
-
-
-
-
-
+            }, 1000);
         }
 
 
 
+        //Skills:
+        let arraySkills = [
+            {
+                name: "Javascript",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
+            },
+
+            {
+                name: "React.js (+ vite)",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSoW3g9hjXIasgon-kpzz-lD9z4SsalyPbZA&s"
+            },
+
+            {
+                name: "Python",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/935px-Python-logo-notext.svg.png"
+            },
+
+            {
+                name: "C#",
+                image: "https://www.fixedbuffer.com/wp-content/uploads/2019/06/reflexion.png"
+            },
+
+            {
+                name: "Amazon Web Services",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQsZ1a6ldYwpY8fFpaNB_QPfyHyX7NN7CEHA&s"
+            },
+
+            {
+                name: "Cypress.io",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvVqEapXsm3wyIBCj0j6GwUMwEpsUElyGSA&s"
+            },
+
+            {
+                name: "Github",
+                image: "https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU"
+            },
+
+            {
+                name: "Bootstrap",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/800px-Bootstrap_logo.svg.png"
+            },
+
+            {
+                name: "SQL",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc1FXV2YVvF8-KfQ4w9qtnzDuFKFt3hv1sFA&s"
+            },
+
+            {
+                name: "Sass",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb5SZIi0op7DlJEJOGXbo7fs5qpfotofpEhQ&s"
+            },
+
+            {
+                name: "Materialize",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBE7eZ9DskZuF8QCdcSZ11wMr8AUD1paj-Q&s"
+            },
+
+            {
+                name: "Visual Basic",
+                image: "https://www.edtittel.com/wp-content/uploads/2020/03/newvblogo-1026x576.jpg"
+            },
+
+            {
+                name: "Java",
+                image: "https://cdn.iconscout.com/icon/free/png-256/free-java-60-1174953.png?f=webp"
+            },
+
+            {
+                name: ".net",
+                image: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg"
+            },
+
+            {
+                name: "Node.js + Express + Pug",
+                image: "https://midu.dev/images/tags/node.png"
+                //https://miro.medium.com/v2/resize:fit:366/1*1YJCoKmEWlTL6C9I8apJmA.png
+            },
+
+            {
+                name: "Arduino",
+                image: "https://www.electronicabp.com/wp-content/uploads/2017/08/Arduino-logo.png"
+            },
 
 
-        window.addEventListener('scroll', function () {
-            var content = document.getElementById('absolute-div');
-            var scrollPosition = window.scrollY;
-
-            if (scrollPosition === 0) { //cuando está al top de la pantalla
-                content.classList.add('absolute-div-quit');
-                content.classList.remove('absolute-div');
-            } else {
-                content.classList.remove('absolute-div-quit');
-                content.classList.add('absolute-div');
-            }
-        });
-
-
-
-
-
-
-
-        //Navbar fijar
-        // document.addEventListener('scroll', function () {
-        //     var navbar = document.querySelector('.navbar');
-
-        //     var header = document.querySelector('header');
-        //     var headerHeight = header.offsetHeight;
-
-        //     if (window.scrollY > headerHeight ) {
-        //         navbar.classList.add('fixed');
-        //     } else {
-        //         navbar.classList.remove('fixed');
-        //     }
-        // });
-
-
-
-
-
-
-
-
+        ]
 
 
 
@@ -534,7 +643,7 @@
                 name: "Ropero Virtual",
                 function: "Inventario de ropa que una persona tiene en su casa, con la posibilidad de elegir su vestimenta a utilizar. Permite agregar, editar, eliminar. Trabaja con la base de datos de localstorage",
                 technologies: ["React.js", "Bootstrap", "CSS"],
-                image: "./imagenes_proyectos/img-ropero.JPG",
+                image: "./imagenes_proyectos/img-ropero.jpg",//"./imagenes_proyectos/img-ropero.JPG",
                 link: "https://agustin2999.github.io/?proj=pma"
             },
 
@@ -644,450 +753,18 @@
 
 
 
-
-
-
-
-
-
-
-        //Skills:
-        let arraySkills = [
-            {
-                name: "Javascript",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
-            },
-
-            {
-                name: "React.js (+ vite)",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSoW3g9hjXIasgon-kpzz-lD9z4SsalyPbZA&s"
-            },
-
-            {
-                name: "Python",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/935px-Python-logo-notext.svg.png"
-            },
-
-            {
-                name: "C#",
-                image: "https://www.fixedbuffer.com/wp-content/uploads/2019/06/reflexion.png"
-            },
-
-            {
-                name: "Amazon Web Services",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQsZ1a6ldYwpY8fFpaNB_QPfyHyX7NN7CEHA&s"
-            },
-
-            {
-                name: "Cypress.io",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvVqEapXsm3wyIBCj0j6GwUMwEpsUElyGSA&s"
-            },
-
-            {
-                name: "Github",
-                image: "https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU"
-            },
-
-            {
-                name: "Bootstrap",
-                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/800px-Bootstrap_logo.svg.png"
-            },
-
-            {
-                name: "Sql",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc1FXV2YVvF8-KfQ4w9qtnzDuFKFt3hv1sFA&s"
-            },
-
-            {
-                name: "Sass",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb5SZIi0op7DlJEJOGXbo7fs5qpfotofpEhQ&s"
-            },
-
-            {
-                name: "Materialize",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBE7eZ9DskZuF8QCdcSZ11wMr8AUD1paj-Q&s"
-            },
-
-            {
-                name: "Visual Basic",
-                image: "https://www.edtittel.com/wp-content/uploads/2020/03/newvblogo-1026x576.jpg"
-            },
-
-            {
-                name: "Java",
-                image: "https://cdn.iconscout.com/icon/free/png-256/free-java-60-1174953.png?f=webp"
-            },
-
-            {
-                name: ".net",
-                image: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg"
-            },
-
-            {
-                name: "Node.js + Express + Pug",
-                image: "https://midu.dev/images/tags/node.png"
-                //https://miro.medium.com/v2/resize:fit:366/1*1YJCoKmEWlTL6C9I8apJmA.png
-            },
-
-            {
-                name: "Arduino",
-                image: "https://www.electronicabp.com/wp-content/uploads/2017/08/Arduino-logo.png"
-            },
-
-
-        ]
-
-
-
-
-
-
-
-
-
-
-
-
-        function addHoverButtonContact(id) {
-            let button = document.querySelector('#' + id)
-            button.classList.add('divButtonContact_hover')
-        }
-
-        function removeHoverButtonContact(id) {
-            let button = document.querySelector('#' + id)
-            button.classList.remove('divButtonContact_hover')
-        }
-
-
-
-
-
-        function collapsarMenu() {
-            setTimeout(() => {
-                let menuBurger = document.querySelector('#btnBurger');
-                menuBurger.click();
-
-            }, 3); //anda joia vamooo
-
-
-
-
-
-        }
-
-
-
-
-
-        function mezclarArregloConCopia(arreglo) {
-            const copia = Array.from(arreglo);
-            for (let i = copia.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [copia[i], copia[j]] = [copia[j], copia[i]];
-            }
-            return copia;
-        }
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            let container = document.querySelector('#container_projects');
-
-            proyectos = mezclarArregloConCopia(proyectos)
-
-
-            proyectos.forEach((item) => {
-                let divProyecto = document.createElement("div");
-                divProyecto.className = "proyecto";
-
-                let imagen = document.createElement("img");
-                imagen.src = item.image;
-                imagen.classList.add('img-project');
-                // imagen.style.height='100%';
-                // imagen.style.objectFit= "scale-down !important";
-
-
-                if (item.image == null) {
-                    imagen.src = "https://gaea.com.br/wp-content/uploads/2023/01/post_thumbnail-36c3c625ec8261bcaf15cb8a611b680a.jpeg";
-                }
-
-
-                let divTexto = document.createElement('div');
-
-
-
-                let spanName = document.createElement('span');
-                spanName.textContent = item.name + ": ";
-                spanName.style.fontWeight = "bold";
-
-
-
-                let pDescripcion = document.createElement('p');
-
-                pDescripcion.textContent += item.function;
-
-
-                let pTecnologias = document.createElement('p');
-                pTecnologias.textContent = item.technologies;
-
-
-
-
-
-                let arrImgIconTechnologies = [];
-                item.technologies.forEach((iconItem) => {
-                    arrImgIconTechnologies.push(insertIconsTechnologies(iconItem))
-                })
-
-
-
-
-
-
-
-
-
-
-                let aLinkProyecto = document.createElement('a');
-                aLinkProyecto.textContent = "Ver proyecto";
-                aLinkProyecto.style.display = "block";
-                aLinkProyecto.href = item.link;
-
-                aLinkProyecto.target = "_blank";
-
-
-
-
-
-                //Agregamos de mas chico a mas grande
-
-                divTexto.appendChild(spanName);
-                divTexto.appendChild(pDescripcion);
-                divTexto.appendChild(pTecnologias);
-
-
-                arrImgIconTechnologies.forEach((imgItem) => {
-                    divTexto.appendChild(imgItem);
-                })
-
-
-                divTexto.appendChild(aLinkProyecto);
-
-                divProyecto.appendChild(imagen);
-                divProyecto.appendChild(divTexto);
-
-                container.appendChild(divProyecto);
-
-            })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //Agregar Skills y mezclar
-
-
-
-
-
-
-            let containerSkills = document.querySelector('#divSkillsContainer');
-
-            arraySkills = mezclarArregloConCopia(arraySkills)
-
-
-            arraySkills.forEach((item) => {
-                let divSkill = document.createElement("div");
-                divSkill.className = "div-skill";
-
-                let imagen = document.createElement("img");
-                imagen.src = item.image;
-
-
-                if (item.image == null) {
-                    imagen.src = "https://gaea.com.br/wp-content/uploads/2023/01/post_thumbnail-36c3c625ec8261bcaf15cb8a611b680a.jpeg";
-                }
-
-                let spanName = document.createElement('span');
-                spanName.textContent = item.name;
-
-
-                divSkill.appendChild(imagen);
-                divSkill.appendChild(spanName);
-                containerSkills.appendChild(divSkill);
-            })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // <div class="proyecto" id="projects">
-            //     <img
-            //         src="https://editorial.uefa.com/resources/024a-0e99707ff9db-84d5543d9cf4-1000/paulo_dybala_juventus_.jpeg">
-            //     <div>
-            //         <p>Este es un <a href="#">PROYECTO</a> hecho con react, sass boostrap. etc. Trata de una tienda
-            //             weTrata
-            //             de una tiendTrata de una tiendTrata de una tiendb</p>
-            //     </div>
-
-            // </div>
-
-
-
-
-
-        })
-
-
-
-
-
-        let previoTopAbsoluteDiv = 'initial';
-        console.log("Declaramos variable")
-
-        function changeTopAbsoluteDiv() {
-            /*
-            if navbarSupportedContent tiene clase show, entonces 
-            absolute-div que tenga otro top
-            */
-
-
-            // let menuBurger = document.querySelector('#navbarSupportedContent');
-            // let absoluteDiv = document.querySelector('#absolute-div');
-
-            // if (menuBurger.classList.contains("show")) {
-
-            //     absoluteDiv.classList.add('absolute-div_conmenu')
-            // } else {
-
-            //     absoluteDiv.classList.remove('absolute-div_conmenu')
-            // }
-
-
-
-
-            let absoluteDiv = document.querySelector('#absolute-div');
-
-            if (previoTopAbsoluteDiv == 'conmenu') {
-
-
-
-                absoluteDiv.classList.remove('absolute-div_conmenu')
-                previoTopAbsoluteDiv = 'initial';
-                console.log("agregamos conmenu")
-            } else if (previoTopAbsoluteDiv == 'initial') {
-                console.log("sacamos conmenu")
-                previoTopAbsoluteDiv = 'conmenu';
-                absoluteDiv.classList.add('absolute-div_conmenu')
-                //declaramos el otro valor, para que en el proximo click cambie
-            }
-
-
-        }
-
-
-
-
+        //         14.54
+
+        // 15 perdios ponele
+        // 16.53
+        // bue hice un monton, perdi tiempo pero bueno no tanto tampoco, kt a hacer otra cosa., vamos argentina hoy
 
         function insertIconsTechnologies(technology) {
             let imgTech = document.createElement('img');
             imgTech.style.width = "50px";
+            imgTech.style.height = "auto";
+
+
             imgTech.style.margin = "8px";
             switch (technology.toLowerCase()) {
                 case "github":
@@ -1139,7 +816,7 @@
 
                 default:
                     imgTech.src = "https://cdn-icons-png.flaticon.com/512/1995/1995515.png"
-                    imgTech.alt = "imagen default"
+                    imgTech.alt = "imagen " + technology;
                     break;
             }
 
@@ -1155,6 +832,43 @@
 
 
 
+        document.addEventListener('DOMContentLoaded', function () {
+
+
+
+            // Agregamos Skills
+            let ulContainerSkills = document.querySelector('#ul-container-skills');
+
+            arraySkills = mezclarArregloConCopia(arraySkills)
+
+            arraySkills.forEach((item) => {
+
+                let liContainerSkill = document.createElement("li");
+
+                let divSkill = document.createElement("div");
+                divSkill.className = "div-skill";
+                divSkill.style.display = "flex";
+                divSkill.style.alignItems = "center";
+                divSkill.style.gap = "0.3rem";
+
+                let imagen = document.createElement("img");
+                imagen.src = item.image;
+                imagen.style.width = "10px"
+
+                if (item.image == null) {
+                    imagen.src = "https://gaea.com.br/wp-content/uploads/2023/01/post_thumbnail-36c3c625ec8261bcaf15cb8a611b680a.jpeg";
+                }
+
+                let spanName = document.createElement('span');
+                spanName.textContent = item.name;
+
+
+
+                divSkill.appendChild(imagen);
+                divSkill.appendChild(spanName);
+                liContainerSkill.appendChild(divSkill);
+                ulContainerSkills.appendChild(liContainerSkill);
+            })
 
 
 
@@ -1167,45 +881,198 @@
 
 
 
-        /*UNA LOCURAAA, ME LO DIO GPT, ES PARA QUE APUTE BIEN AL HACER CLICK EN EL MENU*/
-        document.querySelectorAll('.nav-link.active').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                let offset = 90; // Ajuste según la altura de tu menú fijo
-
-                // Hago una excepcion para container_skills no se porque pero me tapa el titulo cuando le hago click y me lleva
-
-                e.target.id == "click-to-container_skills" ? offset = 120 : offset = offset
 
 
-                window.scrollTo({
-                    top: targetElement.offsetTop - offset,
-                    behavior: 'smooth'
-                });
-            });
-        });
+            // Agregamos proyectos
 
 
 
 
- 
+            let container = document.querySelector('#projects');
+
+            proyectos = mezclarArregloConCopia(proyectos)
+
+
+            proyectos.forEach((item) => {
+                let divProyecto = document.createElement("div");
+                divProyecto.className = "project";
+
+                let imagen = document.createElement("img");
+                imagen.src = item.image;
+                imagen.alt = item.name
+
+                //EDITAR ESTILO DE IMAGEN PARA QUE SEA COVER O NO SE COMO SE LLAMA, PERO AHORA MISMO SE ESTA VIENDO FEA, DESPIXELADA
+                // imagen.maxWidth="100%" 
+                imagen.height = "auto"
+                imagen.width = "400px !important";
+                imagen.maxHeight = "300px !important";
+                imagen.objectFit = "contain !important";
+
+
+
+
+
+
+
+
+                if (item.image == null) {
+                    imagen.src = "https://gaea.com.br/wp-content/uploads/2023/01/post_thumbnail-36c3c625ec8261bcaf15cb8a611b680a.jpeg";
+                }
+
+
+
+                let nombreProyecto = document.createElement('h3');
+                nombreProyecto.textContent = item.name
+
+
+
+
+                let pDescripcion = document.createElement('p');
+
+                pDescripcion.textContent = item.function;
+
+
+                let pTecnologias = document.createElement('p');
+                pTecnologias.textContent = item.technologies;
+
+                let arrImgIconTechnologies = [];
+                item.technologies.forEach((iconItem) => {
+                    arrImgIconTechnologies.push(insertIconsTechnologies(iconItem))
+                })
+
+
+
+                let aLinkProyecto = document.createElement('a');
+                aLinkProyecto.textContent = "Ver proyecto";
+                aLinkProyecto.href = item.link;
+                aLinkProyecto.target = "_blank";
+
+
+
+
+
+                //Agregamos de mas chico a mas grande
+
+                // divTexto.appendChild(spanName);
+                // divTexto.appendChild(pDescripcion);
+                // divTexto.appendChild(pTecnologias);
+
+
+
+
+
+                // divTexto.appendChild(aLinkProyecto);
+
+                divProyecto.appendChild(imagen);
+                divProyecto.appendChild(nombreProyecto);
+
+                divProyecto.appendChild(pDescripcion);
+                divProyecto.appendChild(pTecnologias);
+
+
+                let divContainerImgTech = document.createElement("div");
+                divContainerImgTech.style.display = "flex";
+                divContainerImgTech.style.justifyContent = "center";
+
+
+                arrImgIconTechnologies.forEach((imgItem) => {
+                    divContainerImgTech.appendChild(imgItem);
+                })
+
+                divProyecto.appendChild(divContainerImgTech);
+
+
+
+                container.appendChild(divProyecto);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            })
+        })
+
+
+
+
+
+
+
 
 
     </script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
-
-
-
-
-
-<!-- https://ar.pinterest.com/pin/568016571755780917/visual-search/?x=16&y=16&w=532&h=391&cropSource=6 -->
