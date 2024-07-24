@@ -439,6 +439,8 @@ document.addEventListener('DOMContentLoaded', function () {
         //let arrImgIconTechnologies = [];
 
 
+
+
         let aLinkProyecto = document.createElement('a');
         aLinkProyecto.textContent = "Ver proyecto";
         aLinkProyecto.href = item.link;
@@ -448,6 +450,19 @@ document.addEventListener('DOMContentLoaded', function () {
         aLinkProyecto.style.textShadow = "5px 1px 15px rgba(0,0,0,0.59)";
 
         aLinkProyecto.className = "linkVerProyecto"
+
+ 
+
+// nueva logica 'a' simulando boton. 23/7/24
+aLinkProyecto = document.createElement('a');
+aLinkProyecto.href = item.link;
+aLinkProyecto.target = "_blank";
+aLinkProyecto.textContent = "Ver proyecto";
+aLinkProyecto.className = "buttonVerProyecto"
+
+
+
+
 
         //Agregamos de mas chico a mas grande
 
